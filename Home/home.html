@@ -17,9 +17,31 @@
     <main>
         <section class="catalogo" id="produtos">
             <div class="produto">
-                <img src="../img/produtos/lipsticks-5893482_1280.jpg" alt="Blush">
+                <img src="../img/produtos/lipsticks-5893482_1280.jpg" alt="Lipsticks">
                 <h2>Lipsticks</h2>
                 <p>R$ 29,90</p>
+                <div class="quantity-selector">
+                    <button class="quantity-btn" data-action="decrease">-</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="quantity-btn" data-action="increase">+</button>
+                </div>
+                <button class="add-to-cart" data-name="Lipsticks" data-price="29,90">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="../img/produtos/cosmetics-9086984_1280.jpg" alt="Paleta de Corretivos">
+                <h2>Paleta de Corretivos</h2>
+                <p>R$ 49,90</p>
+                <div class="quantity-selector">
+                    <button class="quantity-btn" data-action="decrease">-</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="quantity-btn" data-action="increase">+</button>
+                </div>
+                <button class="add-to-cart" data-name="Paleta de Corretivos" data-price="49.90">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="../img/produtos/cosmetics-2317778_1280.jpg" alt="Produto 1">
+                <h2>Iluminador Kiko Milano</h2>
+                <p>R$ 96,80</p>
                 <div class="quantity-selector">
                     <button class="quantity-btn" data-action="decrease">-</button>
                     <input type="number" class="quantity" value="1" min="1">
@@ -28,9 +50,42 @@
                 <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
             </div>
             <div class="produto">
-                <img src="../img/produtos/cosmetics-9086984_1280.jpg" alt="Produto 1">
-                <h2>Paleta de Corretivos</h2>
-                <p>R$ 49,90</p>
+                <img src="../img/produtos/tube-302745_1280.jpg" alt="Produto 1">
+                <h2>Sabonete Liquído</h2>
+                <p>R$ 80,00</p>
+                <div class="quantity-selector">
+                    <button class="quantity-btn" data-action="decrease">-</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="quantity-btn" data-action="increase">+</button>
+                </div>
+                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="../img/produtos/manicure-870857_1280.jpg" alt="Produto 1">
+                <h2>Esmalte</h2>
+                <p>R$ 9,90</p>
+                <div class="quantity-selector">
+                    <button class="quantity-btn" data-action="decrease">-</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="quantity-btn" data-action="increase">+</button>
+                </div>
+                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="../img/produtos/eye-shadow-4558443_1280.jpg" alt="Produto 1">
+                <h2>Paleta de sombras</h2>
+                <p>R$ 59,90</p>
+                <div class="quantity-selector">
+                    <button class="quantity-btn" data-action="decrease">-</button>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="quantity-btn" data-action="increase">+</button>
+                </div>
+                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="../img/produtos/brushes-6782175_1280.jpg" alt="Produto 1">
+                <h2>Pincel</h2>
+                <p>R$ 17,80</p>
                 <div class="quantity-selector">
                     <button class="quantity-btn" data-action="decrease">-</button>
                     <input type="number" class="quantity" value="1" min="1">
@@ -56,7 +111,7 @@
         <div class="cart-content">
             <h2>Carrinho de Compras</h2>
             <ul id="cart-items"></ul>
-            <p class="total">Total: R$ <span id="cart-total">0.00</span></p>
+            <p class="total">Total: R$ <span id="cart-total">0,00</span></p>
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="close-cart">Fechar</button>
         </div>
