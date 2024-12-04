@@ -1,0 +1,241 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-image: url('../img/zero-waste-beauty-products.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Header fixo */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #cebbb0; /* Usando o mesmo padrão de cores */
+    color: #4b2303;
+    display: flex;
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    align-items: center; /* Centraliza os botões verticalmente */
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+/* Botões do header */
+.header .nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header .nav a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px; /* Adiciona espaço interno */
+    border: none;
+    border-radius: 30px; /* Mantém arredondado */
+    background-color: #bd9d80; /* Cor de fundo igual ao botão salvar */
+    color: #4b2303;
+    box-shadow: 0 4px 10px rgba(200, 198, 198, 0.5);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    text-align: center; /* Centraliza o texto dentro do botão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header .nav a:hover {
+    background-color: #52341b; /* Cor ao passar o mouse */
+    color: #ece5d9; /* Cor do texto ao passar o mouse */
+}
+
+.header.inactive {
+    pointer-events: none; /* Impede cliques no header */
+    opacity: 0.5; /* Reduz a opacidade para indicar inatividade */
+}
+
+/* Ajuste para o conteúdo abaixo do header */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 70px; /* Adiciona espaço para evitar sobreposição pelo header */
+}
+
+/* Botão de voltar */
+.voltar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #bd9d80;
+    color: #4b2303;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 95px;
+    box-shadow: 0 4px 10px #c8c6c6;
+    font-size: 15px;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.voltar-btn:hover {
+    background-color: #52341b;
+    color: #ece5d9;
+}
+
+.voltar-btn i {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* Formulário */
+.form-container {
+    background-color: #cebbb0;
+    padding: 20px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    font-size: 30px;
+    color: #372110;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    color: #4b2303;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #4b2303;
+    border-radius: 25px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+input[readonly] {
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-color: #ddd;
+}
+
+input:focus, select:focus {
+    border-color: #372110;
+    box-shadow: 0 0 5px rgba(206, 187, 176, 0.8);
+}
+
+/* Botões */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #bd9d80;
+    border-radius: 30px;
+    border: none;
+    color: #4b2303;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(200, 198, 198, 0.5);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #52341b;
+    color: #ece5d9;
+}
+
+/* Links */
+p {
+    font-size: 14px;
+    color: #4b2303;
+    margin-top: 15px;
+}
+
+p a {
+    color: #372110;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    color: #52341b;
+    text-decoration: underline;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: #cebbb0;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #4b2303;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    color: #372110;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modal-content p {
+    margin: 10px 0;
+}
+
+.close {
+    color: #52341b;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #372110;
+}
