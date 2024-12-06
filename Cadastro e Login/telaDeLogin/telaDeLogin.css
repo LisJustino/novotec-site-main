@@ -1,11 +1,13 @@
+/* Reseta margens e padding e define o box-sizing para borda inclusiva */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Define o estilo geral do corpo da página */
 body {
-    font-family: 'Arial Narrow Bold';
+    font-family: 'Arial Narrow Bold', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +18,7 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Estilização do contêiner do formulário */
 .form-container {
     background-color: #cebbb0;
     padding: 30px;
@@ -26,12 +29,14 @@ body {
     text-align: center;
 }
 
+/* Estilo do título */
 h2 {
     font-size: 35px;
     color: #372110;
     margin-bottom: 20px;
 }
 
+/* Estilo dos grupos de inputs */
 .input-group {
     margin-bottom: 20px;
     text-align: left;
@@ -50,7 +55,6 @@ input {
     border: 2px solid #4b2303;
     border-radius: 30px;
     font-size: 16px;
-    margin-bottom: 15px;
     outline: none;
 }
 
@@ -59,6 +63,7 @@ input:focus {
     box-shadow: 0 0 5px #cebbb0;
 }
 
+/* Estilo do botão de envio */
 button {
     width: 100%;
     padding: 10px;
@@ -78,6 +83,7 @@ button:hover {
     color: #ece5d9;
 }
 
+/* Botão de voltar à página inicial */
 .voltar-btn {
     display: inline-block;
     padding: 10px 20px;

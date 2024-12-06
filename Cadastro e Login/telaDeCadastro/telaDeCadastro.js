@@ -1,94 +1,65 @@
-// Aplicação da máscara para CPF
-document.getElementById('cpf').addEventListener('input', function (event) {
-    let cpf = event.target.value;
+// Exibe os usuários cadastrados no console ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    // Recupera os usuários do localStorage
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-    // Remove caracteres não numéricos
-    cpf = cpf.replace(/\D/g, '');
-
-    // Aplica máscara de CPF: 000.000.000-00
-    // Primeiro ponto
-    if (cpf.length > 3) {
-        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    // Verifica se há usuários cadastrados
+    if (usuarios.length === 0) {
+        console.log("Nenhum usuário cadastrado.");
+    } else {
+        console.log("Usuários cadastrados:", usuarios);
     }
-
-    // Segundo ponto
-    if (cpf.length > 6) {
-        cpf = cpf.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
-    }
-
-    // Hífen
-    if (cpf.length > 9) {
-        cpf = cpf.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
-    }
-
-    // Limita o CPF formatado a 14 caracteres
-    cpf = cpf.substring(0, 14);
-
-    // Atualiza o valor do campo
-    event.target.value = cpf;
 });
 
-// Função para validar o CPF
-function validarCPF(cpf) {
-    const cpfNumero = cpf.replace(/\D/g, '');
-    return cpfNumero.length === 11; // valida se tem 11 NÚMEROS
-}
+// Máscara de CPF
+document.getElementById('cpf').addEventListener('input', event => {
+    let cpf = event.target.value.replace(/\D/g, '');
+    if (cpf.length > 3) cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    if (cpf.length > 6) cpf = cpf.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+    if (cpf.length > 9) cpf = cpf.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+    event.target.value = cpf.substring(0, 14);
+});
+
+// Função para validar CPF
+const validarCPF = cpf => /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf);
+
+// Função para validar senhas
+const validarSenhas = (senha, confirmacao) => senha === confirmacao && senha.length >= 6;
 
 // Captura o formulário de cadastro
-const form = document.getElementById('registerForm');
+document.getElementById('registerForm').addEventListener('submit', event => {
+    event.preventDefault(); // Impede envio padrão do formulário
 
-// Adiciona o evento de envio do formulário
-form.addEventListener('submit', function (event) {
-    event.preventDefault();  // Impede o envio normal do formulário
+    // Recupera valores do formulário
+    const nome = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const cpf = document.getElementById('cpf').value.trim();
+    const senha = document.getElementById('password').value;
+    const confirmacaoSenha = document.getElementById('confirmPassword').value;
 
-    const nome = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const cpf = document.getElementById('cpf').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-
-    // Valida se as senhas são iguais
-    if (password !== confirmPassword) {
-        alert('As senhas não coincidem!');
+    // Validações
+    if (!validarCPF(cpf)) {
+        alert('CPF inválido! Certifique-se de usar o formato 000.000.000-00.');
         return;
     }
 
-    // Cria um objeto do usuário
-    const usuario = {
-        nome,
-        email,
-        cpf,
-        password
-    };
+    if (!validarSenhas(senha, confirmacaoSenha)) {
+        alert('As senhas não coincidem ou são muito curtas (mínimo 6 caracteres).');
+        return;
+    }
 
-    // Recupera os usuários salvos (caso existam)
-    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    // Recupera e atualiza os usuários no localStorage
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    if (usuarios.some(user => user.email === email)) {
+        alert('E-mail já cadastrado! Use outro e-mail.');
+        return;
+    }
 
-    // Adiciona o novo usuário ao array de usuários
+    const usuario = { nome, email, cpf, senha };
     usuarios.push(usuario);
-
-    // Salva o array atualizado de usuários no localStorage
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-    alert('Usuário cadastrado com sucesso!');
-    form.reset();  // Reseta o formulário
-
-    // Exibe os usuários cadastrados no console
-    exibirUsuarios();
+    alert('Cadastro realizado com sucesso!');
+    console.log("Usuários cadastrados atualizados:", usuarios); // Exibe no console
+    event.target.reset(); // Reseta o formulário
 });
-
-// Função para exibir os usuários cadastrados no console
-function exibirUsuarios() {
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-    if (usuarios.length === 0) {
-        console.log('Nenhum usuário cadastrado.');
-    } else {
-        console.log('Usuários cadastrados:', usuarios);
-    }
-}
-
-// Chama a função para exibir os usuários após o carregamento da página
-window.onload = function () {
-    exibirUsuarios();
-};

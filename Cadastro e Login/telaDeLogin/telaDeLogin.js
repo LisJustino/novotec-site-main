@@ -1,28 +1,36 @@
-document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+// Exibe os usuários cadastrados no console ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    console.log("Usuários cadastrados:", usuarios);
+});
 
-    const usuario = document.getElementById('usuario').value; // O nome ou e-mail fornecido pelo usuário
-    const password = document.getElementById('password').value; // A senha fornecida pelo usuário
-    const errorMessage = document.getElementById('errorMessage'); // Div para exibir erros
+// Adiciona um ouvinte ao formulário para interceptar o envio
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita o comportamento padrão de envio do formulário
+
+    // Recupera os valores dos campos
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorMessage = document.getElementById('errorMessage'); // Div para exibir mensagens de erro
 
     // Recupera os usuários cadastrados do localStorage
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-    // Busca por um usuário que tenha o nome ou e-mail igual ao fornecido no campo "usuario" e senha igual ao fornecido
+    // Verifica se existe um usuário com o e-mail e senha fornecidos
     const usuarioEncontrado = usuarios.find(
-        user => (user.email === usuario || user.nome === usuario) && user.password === password
+        user => user.email === email && user.senha === password
     );
 
-    // Se o usuário foi encontrado e a senha estiver correta
     if (usuarioEncontrado) {
-        errorMessage.textContent = ''; // Limpa qualquer mensagem de erro
+        errorMessage.textContent = ''; // Limpa a mensagem de erro
 
-        // Salva o usuário logado em uma chave específica no localStorage para referência
+        // Salva os dados do usuário logado no localStorage
         localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
 
         // Redireciona para a tela de perfil
+        alert(`Bem-vindo(a), ${usuarioEncontrado.nome}!`);
         window.location.assign('../../Meu Perfil/meuPerfil.html');
     } else {
-        errorMessage.textContent = 'Usuário ou senha incorretos :('; // Exibe a mensagem de erro
+        errorMessage.textContent = 'E-mail ou senha incorretos :('; // Exibe erro
     }
 });

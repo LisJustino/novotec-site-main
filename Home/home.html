@@ -1,126 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Produtos</title>
+    <title>Catálogo de Produtos - EJ Cosméticos</title>
     <link rel="stylesheet" href="home.css">
 </head>
+
 <body>
     <header class="header">
         <nav class="nav">
             <a href="../Meu Perfil/meuPerfil.html">Meu Perfil</a>
         </nav>
-        <button class="cart-button">🛒 Carrinho (<span id="cart-count">0</span>)</button>
+        <button class="cart-button" aria-label="Carrinho de compras">
+            🛒 Carrinho (<span id="cart-count">0</span>)
+        </button>
     </header>
-    <script src="../Menu Lateral/menuLateral.js"></script>
     <main>
         <section class="catalogo" id="produtos">
-            <div class="produto">
-                <img src="../img/produtos/lipsticks-5893482_1280.jpg" alt="Lipsticks">
+            <!-- Produto 1 -->
+            <article class="produto">
+                <img src="../img/produtos/lipsticks-5893482_1280.jpg" alt="Imagem de batons" class="produto-img">
                 <h2>Lipsticks</h2>
-                <p>R$ 29,90</p>
+                <p class="preco">R$ 29,90</p>
                 <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
+                    <button class="quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">-</button>
+                    <input type="number" class="quantity" value="1" min="1" aria-label="Quantidade de Lipsticks">
+                    <button class="quantity-btn" data-action="increase" aria-label="Aumentar quantidade">+</button>
                 </div>
-                <button class="add-to-cart" data-name="Lipsticks" data-price="29,90">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="../img/produtos/cosmetics-9086984_1280.jpg" alt="Paleta de Corretivos">
+                <button class="add-to-cart" data-name="Lipsticks" data-price="29.90"
+                    data-image="../img/produtos/lipsticks-5893482_1280.jpg"
+                    aria-label="Adicionar Lipsticks ao carrinho">Adicionar ao Carrinho</button>
+            </article>
+            <!-- Produto 2 -->
+            <article class="produto">
+                <img src="../img/produtos/cosmetics-9086984_1280.jpg" alt="Imagem de Paleta de Corretivos"
+                    class="produto-img">
                 <h2>Paleta de Corretivos</h2>
-                <p>R$ 49,90</p>
+                <p class="preco">R$ 49,90</p>
                 <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
+                    <button class="quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">-</button>
+                    <input type="number" class="quantity" value="1" min="1"
+                        aria-label="Quantidade de Paleta de Corretivos">
+                    <button class="quantity-btn" data-action="increase" aria-label="Aumentar quantidade">+</button>
                 </div>
-                <button class="add-to-cart" data-name="Paleta de Corretivos" data-price="49.90">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="../img/produtos/cosmetics-2317778_1280.jpg" alt="Produto 1">
-                <h2>Iluminador Kiko Milano</h2>
-                <p>R$ 96,80</p>
+                <button class="add-to-cart" data-name="Paleta de Corretivos" data-price="49.90"
+                    data-image="../img/produtos/cosmetics-9086984_1280.jpg"
+                    aria-label="Adicionar Paleta de Corretivos ao carrinho">Adicionar ao Carrinho</button>
+            </article>
+            <!-- Produto 3 -->
+            <article class="produto">
+                <img src="../img/produtos/brushes-6782175_1280.jpg" alt="Imagem de Pincel de Sombra"
+                    class="produto-img">
+                <h2>Pincel de Sombra</h2>
+                <p class="preco">R$ 19,90</p>
                 <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
+                    <button class="quantity-btn" data-action="decrease" aria-label="Diminuir quantidade">-</button>
+                    <input type="number" class="quantity" value="1" min="1"
+                        aria-label="Quantidade de Pincel de Sombra">
+                    <button class="quantity-btn" data-action="increase" aria-label="Aumentar quantidade">+</button>
                 </div>
-                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="../img/produtos/tube-302745_1280.jpg" alt="Produto 1">
-                <h2>Sabonete Liquído</h2>
-                <p>R$ 80,00</p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
-                </div>
-                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="../img/produtos/manicure-870857_1280.jpg" alt="Produto 1">
-                <h2>Esmalte</h2>
-                <p>R$ 9,90</p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
-                </div>
-                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="../img/produtos/eye-shadow-4558443_1280.jpg" alt="Produto 1">
-                <h2>Paleta de sombras</h2>
-                <p>R$ 59,90</p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
-                </div>
-                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="../img/produtos/brushes-6782175_1280.jpg" alt="Produto 1">
-                <h2>Pincel</h2>
-                <p>R$ 17,80</p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
-                </div>
-                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
-            </div>
-            <div class="produto">
-                <img src="../img/produtos/glitter-powder-186829_1280.jpg" alt="Produto 1">
-                <h2>Glitter</h2>
-                <p>R$ 19,90</p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <input type="number" class="quantity" value="1" min="1">
-                    <button class="quantity-btn" data-action="increase">+</button>
-                </div>
-                <button class="add-to-cart" data-name="Produto 1" data-price="49.90">Adicionar ao Carrinho</button>
-            </div>
+                <button class="add-to-cart" data-name="Pincel de Sombra" data-price="19.90"
+                    data-image="../img/produtos/brushes-6782175_1280.jpg"
+                    aria-label="Adicionar Pincel de Sombra ao carrinho">Adicionar ao Carrinho</button>
+            </article>
         </section>
     </main>
-
-    <div class="cart-modal" id="cart-modal">
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cart-modal" aria-hidden="true">
         <div class="cart-content">
             <h2>Carrinho de Compras</h2>
-            <ul id="cart-items"></ul>
+            <ul id="cart-items">
+                <li class="cart-header">
+                    <span class="header-item">Produto</span>
+                    <span class="header-item">Quantidade</span>
+                    <span class="header-item">Valor</span>
+                </li>
+            </ul>
             <p class="total">Total: R$ <span id="cart-total">0,00</span></p>
-            <button id="clear-cart">Limpar Carrinho</button>
-            <button id="close-cart">Fechar</button>
+            <button id="clear-cart" aria-label="Limpar carrinho">Limpar Carrinho</button>
+            <button id="close-cart" aria-label="Fechar modal do carrinho">Fechar</button>
         </div>
     </div>
-
+    <div id="notification" class="notification">
+        Produto Adicionado ao Carrinho!
+    </div>
     <footer>
-        <p>EJ Cosméticos &copy;</p>
+        <p>EJ Cosméticos &copy; 2024</p>
     </footer>
 
     <script src="home.js"></script>
 </body>
+
 </html>

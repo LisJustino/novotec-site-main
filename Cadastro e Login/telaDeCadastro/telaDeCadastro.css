@@ -1,54 +1,49 @@
+/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilo Geral do Corpo */
 body {
-    font-family: 'Arial Narrow Bold';
+    font-family: 'Arial Narrow Bold', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    background-image: url('../../img/zero-waste-beauty-products2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('../../img/zero-waste-beauty-products2.jpg') no-repeat center/cover;
 }
 
+/* Contêiner do Formulário */
 .form-container {
     background-color: #cebbb0;
     padding: 20px 25px;
     border-radius: 30px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
-    width: 85%;
     max-width: 350px;
+    width: 85%;
     text-align: center;
     position: relative;
 }
 
-h2 {
-    font-size: 30px;
-    color: #372110;
-    margin-bottom: 15px;
-}
-
+/* Botão Voltar */
 .voltar-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #bd9d80;
-    color: #4b2303;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 95px;
-    box-shadow: 0 4px 10px #c8c6c6;
-    font-size: 15px;
-    transition: background-color 0.3s ease-in-out;
-    margin-bottom: 20px;
     position: absolute;
     top: 20px;
     left: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bd9d80;
+    color: #4b2303;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 95px;
+    box-shadow: 0 4px 10px #c8c6c6;
+    transition: 0.3s;
 }
 
 .voltar-btn:hover {
@@ -56,74 +51,24 @@ h2 {
     color: #ece5d9;
 }
 
-.voltar-btn i {
-    font-size: 18px;
-    margin-right: 8px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-label {
-    display: block;
-    font-size: 16px;
-    color: #4b2303;
-    margin-bottom: 5px;
-}
-
-input {
+/* Inputs e Botões */
+input, button {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
     border: 2px solid #4b2303;
     border-radius: 25px;
-    font-size: 14px;
-    margin-bottom: 10px;
     outline: none;
 }
 
-input:focus {
+input:focus, button:hover {
     border-color: #372110;
-    box-shadow: 0 0 5px rgba(206, 187, 176, 0.8);
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #bd9d80;
-    border-radius: 30px;
-    border: none;
-    color: #4b2303;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(200, 198, 198, 0.5);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-button:hover {
     background-color: #52341b;
     color: #ece5d9;
 }
 
-p {
-    font-size: 14px;
-    color: #4b2303;
-    margin-top: 15px;
-}
-
-p a {
-    color: #372110;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-p a:hover {
-    color: #52341b;
-    text-decoration: underline;
-}
-
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -132,37 +77,18 @@ p a:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-    background-color: #cebbb0;
     margin: auto;
     padding: 20px;
+    background-color: #cebbb0;
     border: 2px solid #4b2303;
     border-radius: 25px;
-    width: 90%;
     max-width: 350px;
-    text-align: center;
-    color: #372110;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-}
-
-.modal-content p {
-    margin: 10px 0;
-}
-
-.close {
-    color: #52341b;
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #372110;
+    text-align: center;
 }

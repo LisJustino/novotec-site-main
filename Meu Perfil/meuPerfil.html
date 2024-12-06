@@ -1,4 +1,3 @@
-<!-- Meu Perfil -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,59 +12,56 @@
             <a href="../Home/home.html">Home</a>
         </nav>
     </header>
-    <script src="../Menu Lateral/menuLateral.js"></script>
     <div class="container">
         <div class="form-container">
             <h2>Meu Perfil</h2>
-            <form action="#" method="POST" id="perfil-form">
+            <form id="perfil-form">
                 <div class="input-group">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" value="Nome Completo" readonly>
+                    <input type="text" id="nome" name="nome" readonly>
                 </div>
-                
                 <div class="input-group">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" value="000.000.000-00" readonly>
+                    <input type="text" id="cpf" name="cpf" readonly>
                 </div>
-                
                 <div class="input-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" value="seuemail@email.com">
+                    <input type="email" id="email" name="email">
                 </div>
-                
                 <div class="input-group">
                     <label for="cep">CEP</label>
                     <input type="text" id="cep" name="cep" placeholder="Digite o CEP">
                 </div>
-
                 <div class="input-group">
-                    <label for="endereco">Logadouro</label>
+                    <label for="endereco">Logradouro</label>
                     <input type="text" id="endereco" name="endereco" readonly>
                 </div>
-
+                <div class="input-group">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" name="numero" placeholder="Digite o número">
+                </div>
+                <div class="input-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" name="complemento" placeholder="Digite o complemento">
+                </div>
                 <div class="input-group">
                     <label for="estado">Estado</label>
                     <input type="text" id="estado" name="estado" readonly>
                 </div>
-
                 <div class="input-group">
                     <label for="cidade">Cidade</label>
                     <input type="text" id="cidade" name="cidade" readonly>
                 </div>
-
                 <button id="salvar" type="button">Salvar</button>
             </form>
         </div>
     </div>
-
-    <!-- Modal de Notificação -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span id="close-modal" class="close">&times;</span>
-            <p>Oba, seus dados foram atualizados com sucesso!</p>
+            <p>Dados atualizados com sucesso!</p>
         </div>
     </div>
-
     <script src="meuPerfil.js"></script>
 </body>
 </html>

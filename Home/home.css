@@ -1,3 +1,4 @@
+/* === Resetando estilos básicos === */
 * {
     margin: 0;
     padding: 0;
@@ -5,277 +6,345 @@
 }
 
 body {
-    font-family: 'Arial Narrow Bold', sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #ebe6e0;
+    /* Fundo suave */
+    color: #4b2303;
+    /* Texto escuro para contraste */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-image: url('../img/zero-waste-beauty-products.jpg');
+    background-image: url(../img/zero-waste-beauty-products.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    overflow-x: hidden;
-    color: #4b2303;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.header {
+/* === Header === */
+header {
+    width: 100%;
+    background-color: #bd9d80;
+    /* Cor modificada para #bd9d80 */
+    color: #4b2303;
+    /* Texto escuro */
+    padding: 20px 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    background-color: #cebbb0;
-    color: #4b2303;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-    z-index: 1000;
 }
 
-.header .nav {
-    display: flex;
-    gap: 20px;
-}
-
-.header .nav a {
+header .nav a {
     text-decoration: none;
-    font-size: 14px;
+    color: #4b2303;
+    /* Texto escuro */
+    font-size: 18px;
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 30px;
-    background-color: #bd9d80;
+    background-color: #bc9154;
+    /* Cor suave */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header .nav a:hover {
+    background-color: #8a481b;
+    /* Cor mais forte no hover */
+    color: #ebe6e0;
+    /* Texto claro no hover */
+}
+
+.cart-button {
+    background-color: transparent;
+    border: none;
     color: #4b2303;
-    box-shadow: 0 4px 10px rgba(200, 198, 198, 0.5);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    text-align: center;
+    /* Texto escuro */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.cart-button:hover {
+    color: #8a481b;
+    /* Cor mais forte no hover */
+}
+
+/* === Meu Perfil (centrado no header) === */
+header .nav {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
 }
 
-.header .nav a:hover {
-    background-color: #52341b;
-    color: #ece5d9;
+header .nav a {
+    margin: 0 10px;
+    /* Adicionando espaçamento entre os links */
 }
 
-.header.inactive {
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-.catalogo {
+/* === Main === */
+main {
     margin-top: 80px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
     width: 100%;
-    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
 
+/* === Catalogo === */
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/* === Produto === */
 .produto {
-    background-color: #cebbb0;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    background-color: #bd9d80;
+    /* Cor modificada para #bd9d80 */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 280px;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    padding: 15px;
+    transition: transform 0.3s ease;
 }
 
 .produto:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    /* Efeito de hover sutil */
 }
 
 .produto img {
     width: 100%;
+    height: auto;
     border-radius: 10px;
-    margin-bottom: 15px;
 }
 
 .produto h2 {
+    margin: 15px 0;
     font-size: 20px;
-    margin-bottom: 10px;
-    color: #372110;
+    color: #4b2303;
+    /* Cor escura para o título */
 }
 
-.produto p {
+.produto .preco {
     font-size: 18px;
+    color: #4b2303;
+    /* Cor escura para o preço */
     margin-bottom: 15px;
-    color: #4b2303;
 }
 
-.produto button {
-    padding: 10px 20px;
-    background-color: #bd9d80;
-    border-radius: 30px;
-    border: none;
-    color: #4b2303;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(200, 198, 198, 0.5);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.produto button:hover {
-    background-color: #52341b;
-    color: #ece5d9;
-}
-
-.cart-modal {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100%;
-    width: 300px;
-    background-color: #cebbb0;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    transition: right 0.3s ease-in-out;
-    z-index: 1000;
-}
-
-.cart-modal.open {
-    right: 0;
-}
-
-.cart-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.cart-content h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    text-align: center;
-    color: #4b2303;
-}
-
-.cart-content ul {
-    list-style: none;
-    padding: 0;
-    flex-grow: 1;
-    overflow-y: auto;
-}
-
-.cart-content ul li {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #4b2303;
-    color: #4b2303;
-}
-
-.cart-content .total {
-    font-size: 18px;
-    margin-top: 15px;
-    text-align: center;
-    color: #4b2303;
-}
-
-.cart-content button {
-    padding: 10px 20px;
-    margin: 5px 0;
-    background-color: #bd9d80;
-    border-radius: 5px;
-    border: none;
-    color: #4b2303;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.cart-content button:hover {
-    background-color: #52341b;
-    color: #ece5d9;
-}
-
-.cart-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    z-index: 999;
-}
-
-.cart-overlay.open {
-    display: block;
-}
-
-footer {
-    background-color: #cebbb0;
-    color: #4b2303;
-    text-align: center;
-    padding: 10px 20px;
-    width: 100%;
-    box-shadow: 0 -4px 10px rgba(255, 255, 255, 0.1);
-}
-
-/* Estilo para a mensagem de produto adicionado */
-.added-to-cart-message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #4b2303;
-    color: #ece5d9;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
-    opacity: 0;
-    animation: fadeInOut 3s forwards;
-}
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
+/* === Seletor de Quantidade === */
 .quantity-selector {
     display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 10px;
     margin-bottom: 15px;
 }
 
 .quantity-btn {
-    padding: 5px 10px;
-    font-size: 18px;
-    background-color: #bd9d80;
+    background-color: #bc9154;
+    /* Cor suave para os botões */
+    color: #ebe6e0;
+    /* Texto claro */
     border: none;
-    color: #4b2303;
+    padding: 10px;
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .quantity-btn:hover {
-    background-color: #52341b;
+    background-color: #8a481b;
+    /* Cor mais forte no hover */
+    transform: scale(1.1);
 }
 
 .quantity {
     width: 50px;
     text-align: center;
-    font-size: 18px;
-    border: 1px solid #4b2303;
+    font-size: 16px;
+    border: 1px solid #bc9154;
+    /* Borda suave */
+    border-radius: 6px;
+    padding: 5px;
+    background-color: #fff;
+    color: #4b2303;
+    /* Cor escura para o texto */
+}
+
+/* === Adicionar ao Carrinho === */
+.add-to-cart {
+    background-color: #bc9154;
+    /* Cor suave */
+    color: #ebe6e0;
+    /* Texto claro */
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+.add-to-cart:hover {
+    background-color: #8a481b;
+    /* Cor mais forte no hover */
+    transform: translateY(-3px);
+}
+
+/* === Carrinho Modal === */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.cart-modal.active {
+    display: flex;
+}
+
+.cart-content {
+    background-color: #ebe6e0; /* Fundo claro */
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;  /* Aumenta a largura para acomodar melhor o conteúdo */
+    max-height: 80vh; /* Limita a altura para evitar rolagem */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Adiciona rolagem apenas se necessário */
+}
+
+/* Adiciona padding nos itens do carrinho */
+.cart-content li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ebe6e0;
+}
+
+.cart-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #8a481b;
+    /* Cor mais forte */
+}
+
+.cart-content ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.cart-content ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.cart-content .total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4b2303;
+    /* Cor escura para o total */
+}
+
+.cart-content button {
+    background-color: #bc9154;
+    /* Cor suave */
+    color: #ebe6e0;
+    /* Texto claro */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.cart-content button:hover {
+    background-color: #8a481b;
+    /* Cor mais forte no hover */
+}
+
+/* Estilo do header no modal */
+.cart-header {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 2px solid #bd9d80; /* Linha separadora */
+    margin-bottom: 10px;
+}
+
+.header-item {
+    width: 30%;  /* Ajuste para dar espaço para cada item */
+    text-align: center;
+}
+
+.cart-header span {
+    width: 33%;
+    /* Para distribuir igualmente entre as colunas */
+    text-align: center;
+}
+
+/* === Footer === */
+footer {
+    margin-top: auto;
+    /* Faz o footer ficar colado na parte inferior */
+    padding: 10px;
+    background-color: #bd9d80;
+    /* Cor modificada para #bd9d80 */
+    color: #4b2303;
+    /* Texto escuro */
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* === Notificação de Produto Adicionado === */
+.notification {
+    display: none;
+    /* Inicialmente escondida */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8a481b;
+    color: #ebe6e0;
+    padding: 15px;
     border-radius: 5px;
-    margin: 0 10px;
+    font-size: 16px;
+    z-index: 1002;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification.active {
+    display: block;
 }

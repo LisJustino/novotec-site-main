@@ -33,7 +33,8 @@ body {
     align-items: center; /* Centraliza os botões verticalmente */
     padding: 10px 20px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-    z-index: 1000;
+    z-index: 1000; /* Garante que o header esteja acima de outros elementos */
+    top: 0; /* Fixar o header no topo da tela */
 }
 
 /* Botões do header */
@@ -63,11 +64,6 @@ body {
 .header .nav a:hover {
     background-color: #52341b; /* Cor ao passar o mouse */
     color: #ece5d9; /* Cor do texto ao passar o mouse */
-}
-
-.header.inactive {
-    pointer-events: none; /* Impede cliques no header */
-    opacity: 0.5; /* Reduz a opacidade para indicar inatividade */
 }
 
 /* Ajuste para o conteúdo abaixo do header */
@@ -200,7 +196,7 @@ p a:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1050; /* Corrigido para garantir que o modal fique sobre o conteúdo */
     left: 0;
     top: 0;
     width: 100%;
@@ -209,6 +205,7 @@ p a:hover {
     overflow: hidden;
 }
 
+/* Definindo o z-index do modal-content para garantir que o conteúdo do modal fique acima */
 .modal-content {
     background-color: #cebbb0;
     margin: auto;
@@ -222,20 +219,32 @@ p a:hover {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1060; /* Garante que o conteúdo do modal fique acima do fundo */
 }
 
-.modal-content p {
-    margin: 10px 0;
-}
-
+/* Fechar o modal */
 .close {
-    color: #52341b;
-    float: right;
-    font-size: 20px;
+    color: #4b2303;
+    font-size: 30px;
     font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
 }
 
+/* Hover no botão de fechar */
 .close:hover {
-    color: #372110;
+    color: #52341b;
+}
+
+/* Modal ativo - quando o modal estiver visível */
+.modal.show {
+    display: block;
+}
+
+/* Inatividade no Header enquanto o modal está aberto */
+.header.inactive {
+    pointer-events: none; /* Impede a interação com o header */
+    opacity: 0.5; /* Diminui a opacidade para indicar que o header está inativo */
 }

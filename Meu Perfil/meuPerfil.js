@@ -7,18 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('email').value = usuarioLogado.email;
         document.getElementById('cep').value = usuarioLogado.cep || '';
         document.getElementById('endereco').value = usuarioLogado.endereco || '';
+        document.getElementById('numero').value = usuarioLogado.numero || '';
+        document.getElementById('complemento').value = usuarioLogado.complemento || '';
         document.getElementById('estado').value = usuarioLogado.estado || '';
         document.getElementById('cidade').value = usuarioLogado.cidade || '';
     }
 
     const cepInput = document.getElementById("cep");
     const ruaInput = document.getElementById("endereco");
+    const numeroInput = document.getElementById("numero");
+    const complementoInput = document.getElementById("complemento");
     const estadoInput = document.getElementById("estado");
     const cidadeInput = document.getElementById("cidade");
     const salvarBtn = document.getElementById("salvar");
     const modal = document.getElementById("modal");
     const closeModal = document.getElementById("close-modal");
-    const header = document.querySelector(".header"); // Seleciona o header
+    const header = document.querySelector(".header");
 
     function aplicarMascaraCEP(cep) {
         return cep.replace(/(\d{5})(\d{3})/, '$1-$2');
@@ -67,6 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
             email: document.getElementById('email').value,
             cep: document.getElementById('cep').value,
             endereco: document.getElementById('endereco').value,
+            numero: numeroInput.value,
+            complemento: complementoInput.value,
             estado: document.getElementById('estado').value,
             cidade: document.getElementById('cidade').value,
         };
@@ -75,26 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         modal.style.display = "block";
         document.body.style.overflow = 'hidden';
-        header.classList.add("inactive"); // Desativa o header
+        header.classList.add("inactive");
 
         setTimeout(() => {
             modal.style.display = "none";
             document.body.style.overflow = 'auto';
-            header.classList.remove("inactive"); // Reativa o header
-        }, 5000);
+            header.classList.remove("inactive");
+        }, 10000); // Este é o fechamento automático após 5 segundos
     });
 
     closeModal.addEventListener("click", () => {
         modal.style.display = "none";
         document.body.style.overflow = 'auto';
-        header.classList.remove("inactive"); // Reativa o header
+        header.classList.remove("inactive");
     });
 
-    window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = 'auto';
-            header.classList.remove("inactive"); // Reativa o header
-        }
-    });
 });
